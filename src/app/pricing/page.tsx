@@ -39,7 +39,7 @@ const PRICING_PLANS: PricingPlan[] = [
     monthlyPrice: 2999, // $29.99
     yearlyPrice: 29990, // $299.90 (save ~1%)
     ctaLabel: "Get Started",
-    ctaHref: "/signup?plan=starter",
+    ctaHref: "/dashboard/onboarding/services?plan=starter",
     accentColor: "slate",
     features: [
       {
@@ -103,7 +103,7 @@ const PRICING_PLANS: PricingPlan[] = [
     monthlyPrice: 7999, // $79.99
     yearlyPrice: 76790, // $767.90 (save 4%)
     ctaLabel: "Upgrade to Pro",
-    ctaHref: "/signup?plan=professional",
+    ctaHref: "/dashboard/onboarding/services?plan=professional",
     accentColor: "cyan",
     isRecommended: true,
     recommendedReason: "Most popular choice for growing businesses",
@@ -172,7 +172,7 @@ const PRICING_PLANS: PricingPlan[] = [
     monthlyPrice: 29999, // $299.99
     yearlyPrice: 287990, // $2,879.90 (save 4%)
     ctaLabel: "Contact Sales",
-    ctaHref: "/contact-sales?plan=enterprise",
+    ctaHref: "https://github.com/Chronopay-Org/ChronoPay-Frontend/issues",
     accentColor: "amber",
     features: [
       {
@@ -303,14 +303,14 @@ export default function PricingPage() {
             <div>
               <h3 className="font-semibold text-white">Is there a free trial?</h3>
               <p className="mt-2 text-sm text-slate-400">
-                Yes, all plans come with a 14-day free trial. No credit card required to get started.
+                This is a demo deployment: plans and prices are illustrative sample data and nothing is charged.
               </p>
             </div>
             
             <div>
               <h3 className="font-semibold text-white">What payment methods do you accept?</h3>
               <p className="mt-2 text-sm text-slate-400">
-                We accept all major credit cards, as well as digital wallets and Stellar network payments.
+                This demo processes no real payments. The product is designed around Stellar network payments.
               </p>
             </div>
             
@@ -327,20 +327,20 @@ export default function PricingPage() {
         <section className="mt-20 rounded-2xl border border-cyan-300/20 bg-gradient-to-r from-cyan-500/10 to-transparent p-8 text-center sm:p-12">
           <h2 className="text-2xl font-bold text-white">Ready to get started?</h2>
           <p className="mt-4 text-slate-400">
-            Join thousands of businesses already using ChronoPay to manage their time inventory.
+            Explore ChronoPay with sample data and see how time slots are listed, booked and receipted.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <a
-              href="/signup?plan=starter"
+              href="/dashboard/onboarding/services?plan=starter"
               className="inline-flex items-center justify-center rounded-full bg-white/12 px-6 py-3 font-medium text-white hover:bg-white/20 transition-colors focus-ring-cyan"
             >
-              Start Free Trial
+              Get started
             </a>
             <a
-              href="/contact-sales"
+              href="https://github.com/Chronopay-Org/ChronoPay-Frontend/issues"
               className="inline-flex items-center justify-center rounded-full bg-cyan-300 px-6 py-3 font-medium text-slate-950 hover:bg-cyan-200 transition-colors focus-ring-cyan"
             >
-              Talk to Sales
+              Contact the team
             </a>
           </div>
         </section>

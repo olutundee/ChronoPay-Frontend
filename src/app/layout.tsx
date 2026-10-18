@@ -5,6 +5,7 @@ import { ToastProvider } from "@/hooks/use-toast";
 import { ToastContainer } from "@/app/components/ui/toast-container";
 import { RoleProvider } from "@/app/components/navigation/RoleContext";
 import { I18nProvider } from "@/lib/i18n";
+import { SiteFooter } from "@/app/components/SiteFooter";
 
 export const metadata: Metadata = {
   title: "ChronoPay - Time Economy",
@@ -40,11 +41,11 @@ export default function RootLayout({
   const lang = "en"; // TODO: Make dynamic based on locale selection
   
   return (
-<html lang={lang} dir={dir} suppressHydrationWarning>
+<html lang={lang} dir={dir} data-theme="dark" suppressHydrationWarning>
       <body className="min-h-screen flex flex-col antialiased">
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('chronopay-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){};try{var d=localStorage.getItem('chronopay-density');if(d==='comfortable'||d==='balanced'||d==='compact')document.documentElement.dataset.density=d;}catch(e){}})();`,
+            __html: `(function(){try{}catch(e){};try{var d=localStorage.getItem('chronopay-density');if(d==='comfortable'||d==='balanced'||d==='compact')document.documentElement.dataset.density=d;}catch(e){}})();`,
           }}
         />
 
@@ -59,6 +60,7 @@ export default function RootLayout({
           <I18nProvider>
             <RoleProvider initialRole="buyer">
               {children}
+              <SiteFooter />
               <ToastContainer />
             </RoleProvider>
           </I18nProvider>

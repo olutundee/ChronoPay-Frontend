@@ -254,7 +254,7 @@ export function A11yAuditDashboard() {
           Remediation Guidance
         </p>
         <p className="text-xs text-slate-400 leading-relaxed">
-          For full remediation guidance, consult the <a href="/docs/remediation.md" className="text-cyan-400 hover:underline">Accessibility Remediation Docs</a>.
+          For full remediation guidance, consult the <a href="https://github.com/Chronopay-Org/ChronoPay-Frontend/tree/main/docs" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline">Accessibility Remediation Docs</a>.
         </p>
       </div>
     </div>

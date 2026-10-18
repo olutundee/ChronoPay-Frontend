@@ -72,6 +72,14 @@ export function Header() {
               >
                 Stellar
               </a>
+              <a
+                href="https://github.com/Chronopay-Org/ChronoPay-Frontend"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full border border-white/10 px-3 py-2 hover:border-white/20 hover:bg-white/6 hover:text-slate-100 transition duration-200 ease-in-out"
+              >
+                GitHub
+              </a>
             </div>
           </div>
 
@@ -170,6 +178,15 @@ export function Header() {
                 onClick={() => setOpen(false)}
               >
                 Stellar
+              </a>
+              <a
+                href="https://github.com/Chronopay-Org/ChronoPay-Frontend"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block rounded-2xl border border-white/10 bg-zinc-900 px-4 py-3 text-slate-100 hover:bg-white/5"
+                onClick={() => setOpen(false)}
+              >
+                GitHub
               </a>
             </div>
 

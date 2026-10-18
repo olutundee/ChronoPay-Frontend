@@ -16,7 +16,7 @@ const features = [
   {
     title: "Receipts and history",
     body: "Every booking has a status timeline and a receipt page with notes, plus export of booking history.",
-    href: "/dashboard/slots/demo-1/receipt",
+    href: "/dashboard/slots/demo-1/receipt?asset=Product%20strategy%20call%20(1.5h)&tx=GA7Q...K2XD&buyer=A.R.&seller=S.J.&total=50.00%20XLM&settled=2026-04-01%2011%3A30%20UTC",
     cta: "View a demo receipt",
   },
   {
@@ -42,7 +42,22 @@ const features = [
 export default function Home() {
   return (
     <div className="min-h-screen bg-zinc-950 text-zinc-100 font-sans">
-      <main id="main-content" className="mx-auto max-w-5xl px-6 py-20">
+      <header className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-3 px-6 pt-6">
+        <span className="text-lg font-semibold tracking-tight">ChronoPay</span>
+        <nav aria-label="Primary" className="flex items-center gap-5 text-sm text-zinc-300">
+          <a href="/marketplace" className="hover:text-white">Marketplace</a>
+          <a href="/pricing" className="hover:text-white">Pricing</a>
+          <a
+            href="https://github.com/Chronopay-Org/ChronoPay-Frontend"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full border border-white/15 px-3 py-1 hover:border-white/30 hover:text-white"
+          >
+            GitHub
+          </a>
+        </nav>
+      </header>
+      <main id="main-content" className="mx-auto max-w-5xl px-6 pb-20 pt-12">
         <p className="text-sm font-medium uppercase tracking-widest text-cyan-400">
           Time Economy
         </p>
@@ -93,7 +108,8 @@ export default function Home() {
 
         <p className="mt-16 rounded-xl border border-amber-400/30 bg-amber-400/5 p-4 text-sm text-amber-200">
           Demo notice: all listings, suppliers, balances and receipts in this
-          deployment are sample data. No real payments are processed.
+          deployment are sample data. No real payments are processed. Live
+          demo: <a className="underline" href="https://chronopay-frontend-omega.vercel.app">chronopay-frontend-omega.vercel.app</a>.
         </p>
       </main>
     </div>

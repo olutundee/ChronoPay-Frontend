@@ -96,6 +96,7 @@ export default function DesignSystemComponentsPage() {
               currentDate={calendarDate}
               onDateSelect={setCalendarDate}
               availabilityData={sampleAvailabilityData}
+              className="mx-auto max-w-xs"
             />
           </div>
           <div className="prose prose-invert prose-sm max-w-none">

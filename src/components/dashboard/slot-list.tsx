@@ -40,7 +40,9 @@ import { CalendarView } from "./calendar-view";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
-export type { AlternativeSlot } from "./rebooking-utils";
+import type { AlternativeSlot } from "./rebooking-utils";
+import type { RebookingChoice } from "./rebooking-utils";
+export type { AlternativeSlot };
 
 export type RebookingDetail = { alternativeId?: string };
 
@@ -288,34 +290,9 @@ export const SlotList = ({
     router.replace(`${pathname}?${params.toString()}`, { scroll: false });
   };
 
-  const [{ x }, api] = useSpring(() => ({ x: 0 }));
-
+  const [orderedSlots, setOrderedSlots] = useState<Slot[]>(slots);
   const [isDragging, setIsDragging] = useState(false);
   const [conflicts, setConflicts] = useState<Record<string, string>>({});
-
-  const bind = useDrag((state) => {
-    // state.first / state.last indicate drag lifecycle
-    if (state.first) setIsDragging(true);
-    if (state.last) setIsDragging(false);
-
-    // quick examples of conflict detection while dragging
-    // real app should compute based on drop target + business rules
-    if (state.active) {
-      const found: Record<string, string> = {};
-      slots.forEach((s) => {
-        // Existing booking
-        if (s.status && s.status.toLowerCase() === "booked") {
-          found[s.id] = "Existing booking";
-        }
-
-        // Blocked day flag (some slot data may include `blocked`)
-        if ((s as any).blocked) {
-          found[s.id] = "Blocked day";
-        }
-      });
-      setConflicts(found);
-    }
-  });
 
   const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
   // const [isDragging, setIsDragging] = useState(false);
@@ -734,45 +711,6 @@ export const SlotList = ({
           <CalendarView slots={slots} viewMode={viewMode as "month" | "week" | "day"} />
         )}
 
-        {suggestedAlternatives.length > 0 ? (
-            <section className="rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-4 sm:p-5">
-              <div className="flex items-start justify-between gap-3">
-                <div>
-                  <h3 className="text-lg font-semibold text-white">Rebook a matching slot</h3>
-                  <p className="mt-1 text-sm text-slate-300">Suggested alternatives</p>
-                </div>
-              </div>
-              <div className="mt-4 grid gap-3 md:grid-cols-2">
-                {suggestedAlternatives.map((alternative, index) => (
-                  <button
-                    key={alternative.id}
-                    ref={(element) => {
-                      alternativeRefs.current[index] = element;
-                    }}
-                    type="button"
-                    tabIndex={0}
-                    aria-label={`Alternative slot: ${alternative.title}, ${alternative.dateLabel} ${alternative.timeRange}`}
-                    onKeyDown={(event) => handleAlternativeKeyDown(index, event)}
-                    className="rounded-[1.25rem] border border-white/10 bg-slate-900/70 p-4 text-left transition hover:border-cyan-400/40 hover:bg-slate-800/90"
-                  >
-                    <div className="flex items-center justify-between gap-2">
-                      <p className="font-medium text-white">{alternative.title}</p>
-                      <StatusChip tone={mapTone(alternative.status)}>{alternative.status}</StatusChip>
-                    </div>
-                    <p className="mt-2 text-sm text-slate-300">{alternative.dateLabel} · {alternative.timeRange}</p>
-                    <p className="mt-3 text-sm text-slate-400">{alternative.demand}</p>
-                    <p className="mt-2 text-sm text-cyan-200">{alternative.rate}</p>
-                  </button>
-                ))}
-              </div>
-            </section>
-          ) : (
-            <section className="rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-4 sm:p-5">
-              <h3 className="text-lg font-semibold text-white">Rebook a matching slot</h3>
-              <p className="mt-2 text-sm text-slate-300">No matching alternatives found</p>
-              <p className="mt-1 text-sm text-slate-400">No alternatives</p>
-            </section>
-          )}
         </>
       )}
 

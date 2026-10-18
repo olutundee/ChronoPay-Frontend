@@ -11,7 +11,6 @@ import { getNavForRole, ROLE_META, type NavItem } from "@/app/components/navigat
 import { HeaderSearch } from "@/app/components/header-search";
 import { KeyboardShortcutsOverlay } from "@/app/components/keyboard-shortcuts-overlay";
 import { AccountSwitcher } from "@/app/components/account-switcher";
-import { ThemeSwitcher } from "@/app/components/ui/theme-switcher";
 import { RoleChip } from "@/app/components/ui/RoleChip";
 import { OfflineQueueIndicator } from "@/app/components/offline-queue-indicator";
 import { ContextualKeysPanel } from "@/app/components/ui/contextual-keys-panel";
@@ -340,7 +339,6 @@ export function DashboardShell({ children }: { children: React.ReactNode }) {
                   ⌘K
                 </kbd>
               </button>
-              <ThemeSwitcher />
               <OfflineQueueIndicator />
               <button
                 type="button"
