@@ -75,9 +75,9 @@ export const SHARED_NAV_ITEMS: NavItem[] = [
  */
 const SUPPLIER_NAV: NavItem[] = [
   ...SHARED_NAV_ITEMS,
-  { href: "/dashboard/availability", label: "Availability", icon: "📅", ariaLabel: "Manage your availability" },
-  { href: "/dashboard/earnings",     label: "Earnings",     icon: "💰", ariaLabel: "View your earnings" },
-  { href: "/dashboard/history",      label: "History",      icon: "🕘", ariaLabel: "Transaction history" },
+  { href: "/dashboard/onboarding/services", label: "Services", icon: "📅", ariaLabel: "Set up your services" },
+  { href: "/dashboard/onboarding/payout", label: "Payouts", icon: "💰", ariaLabel: "Set up payouts" },
+  { href: "/dashboard/settings", label: "Settings", icon: "⚙️", ariaLabel: "Account settings" },
 ];
 
 /**
@@ -88,9 +88,7 @@ const SUPPLIER_NAV: NavItem[] = [
 const BUYER_NAV: NavItem[] = [
   ...SHARED_NAV_ITEMS,
   { href: "/marketplace",            label: "Marketplace",  icon: "🛒", ariaLabel: "Browse the time marketplace" },
-  { href: "/dashboard/bookings",     label: "My Bookings",  icon: "📋", ariaLabel: "View your bookings" },
-  { href: "/dashboard/calendar",     label: "Calendar",     icon: "📆", ariaLabel: "Booking calendar" },
-  { href: "/dashboard/history",      label: "History",      icon: "🕘", ariaLabel: "Transaction history" },
+  { href: "/dashboard/settings", label: "Settings", icon: "⚙️", ariaLabel: "Account settings" },
 ];
 
 /**
@@ -101,8 +99,6 @@ const BUYER_NAV: NavItem[] = [
 const ADMIN_NAV: NavItem[] = [
   ...SHARED_NAV_ITEMS,
   { href: "/admin/users",      label: "Users",      icon: "👥", ariaLabel: "Manage users" },
-  { href: "/admin/analytics",  label: "Analytics",  icon: "📊", ariaLabel: "Platform analytics" },
-  { href: "/admin/settings",   label: "Settings",   icon: "⚙️",  ariaLabel: "System settings" },
 ];
 
 // ─── Role metadata (label, icon, tone) ────────────────────────────────────────
@@ -134,7 +130,7 @@ export const ROLE_META: Record<UserRole, RoleMeta> = {
     icon: "⏱️",
     tone: "success",
     description: "You are managing and listing your available time slots.",
-    primaryCta: { href: "/dashboard/availability", label: "List a slot" },
+    primaryCta: { href: "/dashboard/onboarding/services", label: "List a slot" },
   },
   buyer: {
     role: "buyer",

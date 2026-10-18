@@ -132,7 +132,13 @@ export function RecentlyViewedRail() {
   );
 
   // Focus the element at focusedIndex
+  const didMountRef = useRef(false);
   useEffect(() => {
+    // Skip the initial mount so the rail does not steal focus or scroll.
+    if (!didMountRef.current) {
+      didMountRef.current = true;
+      return;
+    }
     if (focusedIndex >= 0 && containerRef.current) {
       const buttons = containerRef.current.querySelectorAll<HTMLAnchorElement>(
         "[data-recently-viewed-item]"
@@ -149,6 +155,13 @@ export function RecentlyViewedRail() {
       }
     }
   }, [focusedIndex]);
+
+  // Keep the rail at its start until the user navigates it.
+  useEffect(() => {
+    if (focusedIndex < 0 && containerRef.current) {
+      containerRef.current.scrollLeft = 0;
+    }
+  }, [items, focusedIndex]);
 
   // Don't render if no items
   if (items.length === 0) {

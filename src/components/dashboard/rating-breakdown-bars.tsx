@@ -119,7 +119,7 @@ export function RatingBreakdownBars({
               {/* Label */}
               <span
                 className={clsx(
-                  "w-[7ch] shrink-0 text-sm text-slate-300 truncate transition-opacity duration-200 motion-reduce:transition-none",
+                  "w-[7ch] sm:w-[12ch] shrink-0 text-sm text-slate-300 truncate transition-opacity duration-200 motion-reduce:transition-none",
                   isDimmed ? "opacity-40" : "opacity-100",
                 )}
               >

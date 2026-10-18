@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 /* Focus ring utilities — plain CSS nesting (Tailwind v4 does not support variant
    prefixes inside @apply, so we use native :focus-visible selectors instead). */
 @layer utilities {

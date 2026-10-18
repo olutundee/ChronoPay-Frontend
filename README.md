@@ -2,7 +2,7 @@
 
 Web app for **ChronoPay**, a time-economy marketplace on the Stellar network: suppliers publish bookable time slots, buyers reserve and pay for them, and both sides get status timelines and receipts.
 
-**Live demo:** https://chronopay-frontend.vercel.app
+**Live demo:** https://chronopay-frontend-omega.vercel.app
 
 > All listings, suppliers, balances and receipts are sample data. No real payments are processed.
 
